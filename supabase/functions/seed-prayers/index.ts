@@ -7,20 +7,79 @@ const corsHeaders = {
 };
 
 const names = [
-  "Maria", "John", "Anna", "David", "Sarah", "Emmanuel", "Grace", "Peter",
-  "Ruth", "Samuel", "Esther", "Daniel", "Miriam", "Joseph", "Rebecca",
-  "Paul", "Martha", "Luke", "Naomi", "Timothy", "Lydia", "Caleb",
-  "Hannah", "Joshua", "Deborah", "Andrew", "Priscilla", "Stephen",
-  "Abigail", "Matthew", "Rachel", "James", "Leah", "Philip", "Eve",
-  "Ngọc", "Minh", "Hương", "Thanh", "Linh", "Tuấn", "Mai", "Hòa",
-  "Ji-yeon", "Yuki", "Haruto", "Sora", "Carlos", "Isabella", "Fatima",
+  "Maria",
+  "John",
+  "Anna",
+  "David",
+  "Sarah",
+  "Emmanuel",
+  "Grace",
+  "Peter",
+  "Ruth",
+  "Samuel",
+  "Esther",
+  "Daniel",
+  "Miriam",
+  "Joseph",
+  "Rebecca",
+  "Paul",
+  "Martha",
+  "Luke",
+  "Naomi",
+  "Timothy",
+  "Lydia",
+  "Caleb",
+  "Hannah",
+  "Joshua",
+  "Deborah",
+  "Andrew",
+  "Priscilla",
+  "Stephen",
+  "Abigail",
+  "Matthew",
+  "Rachel",
+  "James",
+  "Leah",
+  "Philip",
+  "Eve",
+  "Ngọc",
+  "Minh",
+  "Hương",
+  "Thanh",
+  "Linh",
+  "Tuấn",
+  "Mai",
+  "Hòa",
+  "Ji-yeon",
+  "Yuki",
+  "Haruto",
+  "Sora",
+  "Carlos",
+  "Isabella",
+  "Fatima",
 ];
 
 const countries = [
-  "🇻🇳 Việt Nam", "🇺🇸 USA", "🇬🇧 UK", "🇰🇷 Korea", "🇯🇵 Japan",
-  "🇧🇷 Brazil", "🇳🇬 Nigeria", "🇵🇭 Philippines", "🇮🇳 India", "🇩🇪 Germany",
-  "🇫🇷 France", "🇲🇽 Mexico", "🇨🇦 Canada", "🇦🇺 Australia", "🇿🇦 South Africa",
-  "🇮🇩 Indonesia", "🇹🇭 Thailand", "🇨🇳 China", "🇪🇸 Spain", "🇮🇹 Italy",
+  "🇻🇳 Việt Nam",
+  "🇺🇸 USA",
+  "🇬🇧 UK",
+  "🇰🇷 Korea",
+  "🇯🇵 Japan",
+  "🇧🇷 Brazil",
+  "🇳🇬 Nigeria",
+  "🇵🇭 Philippines",
+  "🇮🇳 India",
+  "🇩🇪 Germany",
+  "🇫🇷 France",
+  "🇲🇽 Mexico",
+  "🇨🇦 Canada",
+  "🇦🇺 Australia",
+  "🇿🇦 South Africa",
+  "🇮🇩 Indonesia",
+  "🇹🇭 Thailand",
+  "🇨🇳 China",
+  "🇪🇸 Spain",
+  "🇮🇹 Italy",
 ];
 
 const topics = ["peace", "prosperity", "poverty", "healing", "family", "nation"];
@@ -96,8 +155,8 @@ serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabaseUrl = Deno.env.get("VITE_SUPABASE_URL")!;
+    const supabaseKey = Deno.env.get("VITE_SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
     const topic = pick(topics);
