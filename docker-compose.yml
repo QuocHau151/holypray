@@ -7,11 +7,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:80"
-    environment:
-      - VITE_SUPABASE_PUBLISHABLE_KEY=${VITE_SUPABASE_PUBLISHABLE_KEY}
-      - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
-    env_file:
-      - .env
+    args:
+      VITE_SUPABASE_URL: ${VITE_SUPABASE_URL}
+      VITE_SUPABASE_PUBLISHABLE_KEY: ${VITE_SUPABASE_PUBLISHABLE_KEY}
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:80/"]
