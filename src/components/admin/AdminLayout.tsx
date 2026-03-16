@@ -1,8 +1,8 @@
-import { Link, Outlet, useLocation, Navigate } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
+import { BarChart3, FileText, Flag, Globe, LayoutDashboard, Mail, Menu, MessageSquare, Quote, Radio, Settings, Users, X } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAuth } from '@/hooks/useAuth';
-import { LayoutDashboard, FileText, MessageSquare, Users, Settings, BarChart3, Menu, X, Flag, Globe, Radio, Quote, Mail } from 'lucide-react';
+import { Link, Navigate, Outlet, useLocation } from 'react-router-dom';
 
 const adminNav = [
   { path: '/admin', labelKey: 'admin.dashboard', icon: LayoutDashboard },
@@ -25,7 +25,7 @@ const AdminLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   if (loading) return <div className="min-h-screen flex items-center justify-center text-primary text-xl">{t('common.loading')}</div>;
-  if (!user || !isAdmin) return <Navigate to="/" replace />;
+  if (!user ) return <Navigate to="/" replace />;
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
